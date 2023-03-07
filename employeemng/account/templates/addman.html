@@ -1,0 +1,49 @@
+
+{% extends 'index.html' %}
+{%block index%}
+{% load static %}
+      <h2 class="bg-success text-dark">Manager Registration</h2>
+      <form action="" method="post" enctype="multipart/form-data" class="text-center">
+        {%csrf_token%}
+        <div class="row">
+          <div class="col-6">
+        <div class="fieldWrapper">
+          {{ form.first_name.errors }}
+          <label for="{{form.first_name.id_for_label}}">Enter your first name</label>
+          {{form.first_name}}
+        </div>
+        
+        <div class="fieldWrapper">
+          {{ form.last_name.errors }}
+          <label for="{{form.last_name.id_for_label}}">Enter your last name</label>
+          {{form.last_name}}
+        </div>
+        <div class="fieldWrapper">
+          {{ form.email.errors }}
+          <label for="{{form.email.id_for_label}}">Enter your email</label>
+          {{form.email}}
+        </div>
+        <div class="fieldWrapper">
+          {{ form.phone.errors }}
+          <label for="{{form.phone.id_for_label}}">Enter your phone number</label>
+          {{form.phone}}
+        </div>
+        
+          <p><button class="btn btn-success">Register</button></p>
+        </div>
+
+        <div class="col-6">
+          <div class="card container-fluid" style="width:250px">
+            <img class="card-img-top" width="250" src="{% static 'images\pro1.jpg' %}" alt="Card Image">
+            <div class="card-body">
+             <div class="fieldWrapper">
+          {{ form.pic.errors }}
+           <label for="{{form.pic.id_for_label}}">Select your profile picture</label>
+          {{form.pic}}
+        </div>
+        </div>
+      </div>
+    </div>
+        </div>
+        </form>  
+        {%endblock index%}

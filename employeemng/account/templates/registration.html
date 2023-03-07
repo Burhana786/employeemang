@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{%block index%}
+      <form action="" method="post">
+        {%csrf_token%}
+        <h1 class="bg-success text-dark">Registration</h1>
+
+        {% if messages %}
+          {% for msg in messages %}
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+              <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{msg}}</strong>
+              </div>
+              {%endif%}
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+              <div class="alert alert-error alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>{{msg}}</strong>
+              </div>
+            {%endif%}
+          {% endfor %}
+        {% endif %}
+
+        <table class="table table-hovered">
+            {{form.as_table}}
+        </table>
+        <p><button class="btn btn-success">Register</button></p>
+      </form>
+      {%endblock index%}

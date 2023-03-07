@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{%block index%}
+  <h1 class="bg-warning text-dark text-center">HOME</h1><br><br><br>
+      <!-- using NAVIGATION BAR -->
+
+    <!-- <nav class="navbar navbar-expand-sm bg-info">
+      <ul class="navbar-nav">
+          <li class="nav-item"><a href="{% url 'reg' %}" class="nav-link text-light">REGISTRATION</a></li>
+          <li class="nav-item"><a href="{% url 'vemp' %}" class="nav-link text-light">EMPLOYEES</a></li>
+          <li class="nav-item"><a href="{% url 'dept' %}" class="nav-link text-light">ADD DEPARTMENT</a></li>
+          <li class="nav-item"><a href="{% url 'dept1' %}" class="nav-link text-light">DEPARTMENTS</a></li>
+      </ul>
+  </nav><br><br> -->
+      {% if messages %}
+          {% for msg in messages %}
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+              <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{msg}}</strong>
+              </div>
+            {% endif %}
+            {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+              <div class="alert alert-error alert-dismissible">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>{{msg}}</strong>
+             </div>
+            {%endif%}
+          {% endfor %}
+        {% endif %}
+      <!-- <a href="{%url 'reg' %}">REGISTRATION</a><br><br>
+      <a href="{%url 'vemp' %}">EMPLOYEES</a><br><br>
+      <a href="{%url 'dept' %}">ADD DEPARTMENT</a><br><br>
+      <a href="{%url 'dept1' %}">DEPARTMENTS</a><br><br>
+      <a href="{%url 'addman' %}">MANAGER REGISTRATION</a><br><br>
+      <a href="{%url 'viewman' %}">REGISTRED MANAGERS</a> -->
+      {%endblock index%}

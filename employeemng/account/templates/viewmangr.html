@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{%block index%}
+    <h2 class="bg-warning text-dark text-center">REGISTERED MANAGERS</h2>
+    <div class="card-columns">
+        {%for i in data%}
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="{{i.pic.url}}" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">{{i.first_name}} {{i.last_name}}</h4>
+                <p class="card-text">Phone :{{i.phone}}</p>
+                <p class="card-text">Email :{{i.email}}</p>
+                <a href="{% url 'delman' i.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'editman' i.id %}" class="btn btn-warning">Edit</a>
+            </div>
+      </div>
+      {%endfor%}
+    </div>
+    {%endblock index%}
